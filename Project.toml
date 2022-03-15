@@ -1,0 +1,13 @@
+name = "HypertextTools"
+uuid = "4502ade7-0b84-4acc-96da-75e5ce1d0abd"
+authors = ["Tsung-Hsi Wu <okatsn@gmail.com>"]
+version = "0.1.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+julia = "1.6.4"
+
+[targets]
+test = ["Test"]
