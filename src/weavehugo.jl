@@ -45,8 +45,9 @@ $notice
 function cp2content(dst::AbstractString; force=true, copy_from=copy_from, rename_to=false)
 
     allfiles = readdir(copy_from, join=true);
-    bnames = getext.(allfiles); # base names
-    isfig = map(x -> occursin(r"(png|jpe?g|svg|eps|gif|apng)",x[end]), bnames);
+
+    bnames = splitext.(allfiles); # base names
+    isfig = map(x -> occursin(r"\.(png|jpe?g|svg|eps|gif|apng)",x[end]), bnames);
     isindex = occursin.(r"_?index\.md", basename.(allfiles));
     
     figures = allfiles[isfig];
@@ -123,7 +124,7 @@ function lazyhugo(filename::AbstractString; out_path=default_outpath)
       return
   end
 
-  if getext(filename)[end] == "md"
+  if splitext(filename)[end] == ".md"
       opt = [:informat => "markdown"]; 
   end
   _lazyhugo(filename, out_path, opt);
@@ -173,7 +174,7 @@ function getdoc(filepath::String; first_head=0)
   s = open(filepath) do file
     readlines(file);
     end
-  if getext(filepath)[end] == "m" # if it is the matlab file
+  if splitext(filepath)[end] == ".m" # if it is the matlab file
     doc = _getrawcomment(s);
     x = join(lang_matlab(doc,first_head = first_head));
     y = Markdown.parse(x); # or @eval @md_str $x is the same.
