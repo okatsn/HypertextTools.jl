@@ -185,7 +185,7 @@ function getdoc(filepath::String; first_head=0)
 end
 
 function _getrawcomment(s)
-  funbegin = findfirst(occursin.(r"^function\s",s));
+  funbegin = findfirst(occursin.(r"^(function|classdef)\s",s));
   # find the line where function begin
   if funbegin == 1
     return "No documentation for $filepath"
