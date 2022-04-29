@@ -189,7 +189,7 @@ function _getrawcomment(s)
   funbegin = findfirst(occursin.(r"^(function|classdef)\s",s));
   # find the line where function begin
   if funbegin == 1
-    return "No documentation for $filepath"
+    return "No documentation."
   end
   
   if isnothing(funbegin)
