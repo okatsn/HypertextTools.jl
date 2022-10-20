@@ -1,7 +1,7 @@
 name = "HypertextTools"
 uuid = "4502ade7-0b84-4acc-96da-75e5ce1d0abd"
 authors = ["Tsung-Hsi Wu <okatsn@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
